@@ -1,0 +1,272 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/149cda1836.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digital Watch</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .con{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* background-image: linear-gradient(to top left,white,orange); */
+            background-image: linear-gradient(rgba(185,85,237,.7),rgba(111,92,210,.7)),url(new.jpg);
+            background-size: cover;
+        }
+        
+.counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 40vh;
+}
+
+#hours ,#min,#sec{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 12vw;
+        height: 25vh;
+        text-align: center;
+        font-size: 8vw;
+        color:black;
+        background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,.8));
+        border-radius: .8vw;
+        border: .14vw solid;
+        margin-left: 2vw;
+        /* -webkit-box-reflect:   20px linear-gradient(transparent,white); */
+        /* transform: rotateX(1deg); */
+       
+    }
+
+    #sec{
+        animation: back 1s infinite linear;
+    }
+
+    @keyframes back{
+        0%{transform: scale(1);}
+        100%{transform: scale(1);}
+    }
+
+    #sec1{
+        position: relative;
+        right: 17.8%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 12vw;
+        height: 25vh;
+        text-align: center;
+        font-size: 8vw;
+        color:black;
+        background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,.8));
+        border-radius: .8vw;
+        border: .14vw solid;
+        margin-left: 2vw;
+        animation: flip 1s infinite linear;
+        /* -webkit-box-reflect:   20px linear-gradient(transparent,white); */
+        /* transform: rotateX(1deg); */
+    }
+
+    @keyframes flip{
+        0%{transform: translateX(0px) scale(1);}
+        100%{transform: translateX(200px) scale(.6) rotatex(180deg); opacity:0;}
+    }
+ 
+    #day{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 12vw;
+        height: 25vh;
+        text-align: center;
+        font-size: 6.4vw;
+        color:black;
+        background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,.8));
+        border-radius: .8vw;
+        border: .14vw solid;
+        margin-left: 2vw;
+    }
+
+    .icon{
+            position: relative;
+            top: 20vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 8%;
+            height: 10vh;
+            /* border: 1px solid; */
+        }
+
+        .icon>a>i{
+            background: transparent;
+            color: white;
+            font-size: 1.5vw;
+            /* width: 3vw;
+            height: 3vw; */
+            padding: .7vw .7vw;
+            border: .1vw solid;
+            border-radius: 50%;
+            transition: 1s;
+        }
+
+        .icon>a>i:hover{
+            transition: 1s;
+            transform: scale(1.3) rotatey(360deg);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="con">
+        <!-- <div id="time"></div> -->
+        <div class="counter">
+            <div id="day"></div>
+        <div id="hours"></div>
+        <div id="min"></div>
+        <div id="sec"></div>
+        <div id="sec1"></div>
+    </div>
+        <div class="icon">
+            <a href="https://www.facebook.com/gulfamansariofficial"><i class="fab fa-facebook"></i></a>
+            <a href="twitter.com/GulfamSandhu3"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+    
+    <script>
+    
+    // var time=document.getElementById('time')
+    // setInterval(handler,1000)
+    // function handler(){
+    //     var date= new Date()
+    //     var min= date.getMinutes()
+    //     var sec= date.getSeconds()
+    //     var hrs= date.getHours()
+    //     time.innerHTML= (`${hrs} : ${min} : ${sec}`);
+    // }
+
+    var hr=document.getElementById('hours')
+    var mi=document.getElementById('min')
+    var sec=document.getElementById('sec')
+    var sec1=document.getElementById('sec1')
+    var today=document.getElementById('day')
+    setInterval(handler,1000)
+    function handler(){
+        var date= new Date()
+        var hrs= date.getHours()
+        var min= date.getMinutes()
+        var se= date.getSeconds()
+        var s1= date.getSeconds()
+        var day= date.getDay()
+        hr.innerHTML= (`${hrs}`);
+        mi.innerHTML= (`${min}`);
+        sec.innerHTML= (`${se}`);
+        sec1.innerHTML= (`${s1}`);
+        today.innerHTML=(`${weekday[date.getDay()]}`);
+        
+
+    }
+
+    var d = new Date();
+var weekday = new Array(7);
+weekday[0] = "Sun";
+weekday[1] = "Mon";
+weekday[2] = "Tue";
+weekday[3] = "Wed";
+weekday[4] = "Thu";
+weekday[5] = "Fri";
+weekday[6] = "Sat";
+
+var n = weekday[d.getDay()];
+    
+    // setInterval(handler,1000)
+    // function handler(){
+    //     var date= new Date()
+        
+    //     var sec= date.getSeconds()
+    //     var hrs= date.getHours()
+      
+    // }
+
+    //
+    // setInterval(handler,1000)
+    // function handler(){
+    //     var date= new Date()
+    //     var min= date.getMinutes()
+    //    
+    //     var hrs= date.getHours()
+    //     sec.innerHTML= (`${sec}`);
+    // }
+
+    
+    // var t=document.getElementById('hours').style;
+    // t.width="6vw";
+    // t.height="10vh";
+    // t.background="cyan";
+
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digital Watch</title>
+    <style>
+        
+        .con{
+            position: relative;
+            height: 95vh;
+            background-image: linear-gradient(to top left,white,orange);
+        }
+    #time{
+        position: absolute;
+        left: 30%;
+        top: 40%;
+        font-size: 10vw;
+        color: purple;
+        /* border: 1px solid; */
+    }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div id="time"></div>
+    </div>
+    
+    <script>
+    
+    var time=document.getElementById('time')
+    setInterval(handler,1000)
+    function handler(){
+        var date= new Date()
+        var min= date.getMinutes()
+        var sec= date.getSeconds()
+        var hrs= date.getHours()
+        time.innerHTML= (`${hrs} : ${min} : ${sec}`);
+        
+    
+    }
+    
+
+    </script>
+</body>
+</html> -->
